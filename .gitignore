@@ -1,0 +1,10 @@
+# Local editor and operating-system files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Local preview artifacts
+.codex-*
+.chrome-qa-*/
+*.log
+node_modules/

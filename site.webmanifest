@@ -1,0 +1,16 @@
+{
+  "name": "RIOTIME Technical Services L.L.C",
+  "short_name": "RIOTIME",
+  "description": "Your technical partner across Dubai and the UAE.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#061f36",
+  "icons": [
+    {
+      "src": "assets/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

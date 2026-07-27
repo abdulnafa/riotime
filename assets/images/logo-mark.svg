@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">RIOTIME technical services mark</title>
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="32" r="16" stroke-width="4"/>
+    <circle cx="32" cy="32" r="5" stroke-width="3"/>
+    <path stroke-width="4" d="M32 7v9M32 48v9M7 32h9M48 32h9M14.3 14.3l6.4 6.4M43.3 43.3l6.4 6.4M49.7 14.3l-6.4 6.4M20.7 43.3l-6.4 6.4"/>
+    <path stroke-width="3" d="M32 20v7M32 37v7M20 32h7M37 32h7"/>
+  </g>
+</svg>
