@@ -31,4 +31,3 @@ The included workflow at `.github/workflows/pages.yml` publishes the repository 
 - Other hero/service photography was generated specifically for this presentation and contains no third-party branding.
 - The enquiry form validates in the browser and opens a prepared WhatsApp message; no form data is stored by this static site.
 - Replace or confirm the single testimonial before the final production launch if the client wants fully documented review provenance.
-
