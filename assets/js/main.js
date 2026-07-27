@@ -5,7 +5,9 @@
   const body = doc.body;
   const navbar = doc.querySelector(".site-navbar");
   const navCollapse = doc.querySelector(".navbar-collapse");
+  const navToggler = doc.querySelector(".navbar-toggler");
   const backToTop = doc.querySelector(".back-to-top");
+  const hasBootstrap = typeof window.bootstrap !== "undefined";
 
   // Keep copyright dates current.
   doc.querySelectorAll("[data-current-year]").forEach((node) => {
@@ -31,11 +33,59 @@
     navCollapse.addEventListener("show.bs.collapse", () => body.classList.add("menu-open"));
     navCollapse.addEventListener("hidden.bs.collapse", () => body.classList.remove("menu-open"));
 
+    // Keep navigation usable if the CDN bundle is unavailable.
+    if (!hasBootstrap && navToggler) {
+      navToggler.addEventListener("click", () => {
+        const willOpen = !navCollapse.classList.contains("show");
+        navCollapse.classList.toggle("show", willOpen);
+        navToggler.setAttribute("aria-expanded", String(willOpen));
+        body.classList.toggle("menu-open", willOpen);
+      });
+    }
+
     navCollapse.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         if (window.innerWidth < 992 && navCollapse.classList.contains("show")) {
-          bootstrap.Collapse.getOrCreateInstance(navCollapse).hide();
+          if (hasBootstrap) {
+            window.bootstrap.Collapse.getOrCreateInstance(navCollapse).hide();
+          } else {
+            navCollapse.classList.remove("show");
+            navToggler?.setAttribute("aria-expanded", "false");
+            body.classList.remove("menu-open");
+          }
         }
+      });
+    });
+  }
+
+  // Bootstrap-free accordion fallback for restrictive networks or CDN outages.
+  if (!hasBootstrap) {
+    doc.querySelectorAll('[data-bs-toggle="collapse"]').forEach((trigger) => {
+      if (trigger === navToggler) return;
+
+      trigger.addEventListener("click", () => {
+        const selector = trigger.getAttribute("data-bs-target");
+        const target = selector ? doc.querySelector(selector) : null;
+        if (!target) return;
+
+        const accordion = target.closest(".accordion");
+        const willOpen = !target.classList.contains("show");
+
+        if (accordion && willOpen) {
+          accordion.querySelectorAll(".accordion-collapse.show").forEach((openPanel) => {
+            if (openPanel === target) return;
+            openPanel.classList.remove("show");
+            const openTrigger = accordion.querySelector(
+              `[data-bs-target="#${openPanel.id}"]`
+            );
+            openTrigger?.classList.add("collapsed");
+            openTrigger?.setAttribute("aria-expanded", "false");
+          });
+        }
+
+        target.classList.toggle("show", willOpen);
+        trigger.classList.toggle("collapsed", !willOpen);
+        trigger.setAttribute("aria-expanded", String(willOpen));
       });
     });
   }
