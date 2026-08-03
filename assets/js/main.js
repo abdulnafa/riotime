@@ -33,6 +33,18 @@
     navCollapse.addEventListener("show.bs.collapse", () => body.classList.add("menu-open"));
     navCollapse.addEventListener("hidden.bs.collapse", () => body.classList.remove("menu-open"));
 
+    const closeMobileNav = () => {
+      if (!navCollapse.classList.contains("show")) return;
+
+      if (hasBootstrap) {
+        window.bootstrap.Collapse.getOrCreateInstance(navCollapse).hide();
+      } else {
+        navCollapse.classList.remove("show");
+        navToggler?.setAttribute("aria-expanded", "false");
+        body.classList.remove("menu-open");
+      }
+    };
+
     // Keep navigation usable if the CDN bundle is unavailable.
     if (!hasBootstrap && navToggler) {
       navToggler.addEventListener("click", () => {
@@ -46,15 +58,19 @@
     navCollapse.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         if (window.innerWidth < 992 && navCollapse.classList.contains("show")) {
-          if (hasBootstrap) {
-            window.bootstrap.Collapse.getOrCreateInstance(navCollapse).hide();
-          } else {
-            navCollapse.classList.remove("show");
-            navToggler?.setAttribute("aria-expanded", "false");
-            body.classList.remove("menu-open");
-          }
+          closeMobileNav();
         }
       });
+    });
+
+    doc.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape" || window.innerWidth >= 992) return;
+      closeMobileNav();
+      navToggler?.focus();
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 992) closeMobileNav();
     });
   }
 
