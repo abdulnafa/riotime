@@ -1533,6 +1533,10 @@ img {
 }
 
 /* FAQ */
+.accordion {
+  --rt-accordion-padding-x: clamp(1.15rem, 2.4vw, 1.75rem);
+}
+
 .accordion-item {
   margin-bottom: 0.8rem;
   overflow: hidden;
@@ -1542,7 +1546,7 @@ img {
 }
 
 .accordion-button {
-  padding: 1.25rem 1.35rem;
+  padding: 1.3rem var(--rt-accordion-padding-x);
   color: var(--rt-navy-950);
   background: var(--rt-white);
   font-family: "Manrope", sans-serif;
@@ -1563,9 +1567,10 @@ img {
 }
 
 .accordion-body {
-  padding: 0 1.35rem 1.35rem;
+  padding: 1.05rem var(--rt-accordion-padding-x) 1.5rem;
   color: var(--rt-muted);
   font-size: 0.92rem;
+  line-height: 1.75;
 }
 
 /* Inner page hero */
