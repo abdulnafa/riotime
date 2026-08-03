@@ -90,6 +90,168 @@
     });
   }
 
+  // Three-frame page banners with independent, accessible autoplay controls.
+  doc.querySelectorAll("[data-banner-slider]").forEach((slider) => {
+    const slides = [...slider.querySelectorAll("[data-banner-slide]")];
+
+    // Every page banner is intentionally a three-image story. Ignore incomplete
+    // markup instead of leaving a partially working control behind.
+    if (slides.length !== 3) return;
+
+    const dots = [...slider.querySelectorAll("[data-slide-to]")];
+    const toggle = slider.querySelector("[data-slider-toggle]");
+    const toggleIcon = toggle?.querySelector("[data-slider-toggle-icon], .bi");
+    const reducedMotion = typeof window.matchMedia === "function"
+      ? window.matchMedia("(prefers-reduced-motion: reduce)")
+      : null;
+    const requestedInterval = Number.parseInt(slider.dataset.interval || "", 10);
+    const interval = Number.isFinite(requestedInterval) && requestedInterval > 0
+      ? requestedInterval
+      : 2000;
+    const requestedTransition = Number.parseInt(slider.dataset.transition || "", 10);
+    const transitionDuration = Number.isFinite(requestedTransition)
+      && requestedTransition >= 0
+      ? requestedTransition
+      : 850;
+
+    let activeIndex = slides.findIndex((slide) => slide.classList.contains("is-active"));
+    let autoplayTimer = null;
+    let transitionTimer = null;
+    let userPaused = false;
+    let motionPaused = Boolean(reducedMotion?.matches);
+
+    if (activeIndex < 0) activeIndex = 0;
+
+    const updateControls = () => {
+      dots.forEach((dot) => {
+        const dotIndex = Number.parseInt(dot.dataset.slideTo || "", 10);
+        const isCurrent = dotIndex === activeIndex;
+        dot.classList.toggle("is-active", isCurrent);
+        dot.setAttribute("aria-current", String(isCurrent));
+        dot.setAttribute("aria-label", `Show banner slide ${dotIndex + 1} of 3`);
+      });
+
+      if (!toggle) return;
+
+      const isPaused = userPaused || motionPaused;
+      toggle.classList.toggle("is-paused", isPaused);
+      toggle.disabled = motionPaused;
+      toggle.setAttribute("aria-disabled", String(motionPaused));
+      toggle.setAttribute("aria-pressed", String(isPaused));
+      toggle.setAttribute(
+        "aria-label",
+        motionPaused
+          ? "Automatic banner rotation disabled for reduced motion"
+          : isPaused
+            ? "Play banner slideshow"
+            : "Pause banner slideshow"
+      );
+
+      if (toggleIcon) {
+        toggleIcon.classList.toggle("bi-pause-fill", !isPaused);
+        toggleIcon.classList.toggle("bi-play-fill", isPaused);
+        toggleIcon.setAttribute("aria-hidden", "true");
+      }
+    };
+
+    const updateSlides = () => {
+      slides.forEach((slide, index) => {
+        const isCurrent = index === activeIndex;
+        slide.classList.toggle("is-active", isCurrent);
+        slide.setAttribute("aria-hidden", String(!isCurrent));
+        slide.setAttribute("role", "group");
+        slide.setAttribute("aria-roledescription", "slide");
+        if (!slide.hasAttribute("aria-label")) {
+          slide.setAttribute("aria-label", `${index + 1} of 3`);
+        }
+
+        // Prevent controls inside an inactive slide from entering the tab order.
+        if ("inert" in slide) slide.inert = !isCurrent;
+      });
+    };
+
+    const stopAutoplay = () => {
+      if (autoplayTimer !== null) {
+        window.clearTimeout(autoplayTimer);
+        autoplayTimer = null;
+      }
+    };
+
+    const canAutoplay = () => !userPaused && !motionPaused && !doc.hidden;
+
+    const showSlide = (requestedIndex) => {
+      const nextIndex = ((requestedIndex % slides.length) + slides.length) % slides.length;
+      if (nextIndex === activeIndex) return;
+
+      const outgoingSlide = slides[activeIndex];
+      const incomingSlide = slides[nextIndex];
+
+      if (transitionTimer !== null) window.clearTimeout(transitionTimer);
+      slides.forEach((slide) => slide.classList.remove("is-entering", "is-leaving"));
+
+      outgoingSlide.classList.remove("is-active");
+      outgoingSlide.classList.add("is-leaving");
+      incomingSlide.classList.add("is-active", "is-entering");
+      slider.classList.add("is-transitioning");
+      activeIndex = nextIndex;
+
+      updateSlides();
+      updateControls();
+
+      transitionTimer = window.setTimeout(() => {
+        outgoingSlide.classList.remove("is-leaving");
+        incomingSlide.classList.remove("is-entering");
+        slider.classList.remove("is-transitioning");
+        transitionTimer = null;
+      }, transitionDuration);
+    };
+
+    const scheduleAutoplay = () => {
+      stopAutoplay();
+      if (!canAutoplay()) return;
+
+      autoplayTimer = window.setTimeout(() => {
+        showSlide(activeIndex + 1);
+        scheduleAutoplay();
+      }, interval);
+    };
+
+    slides.forEach((slide) => slide.classList.remove("is-entering", "is-leaving"));
+    updateSlides();
+    updateControls();
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const dotIndex = Number.parseInt(dot.dataset.slideTo || "", 10);
+        if (!Number.isInteger(dotIndex) || dotIndex < 0 || dotIndex >= 3) return;
+        showSlide(dotIndex);
+        scheduleAutoplay();
+      });
+    });
+
+    toggle?.addEventListener("click", () => {
+      userPaused = !userPaused;
+      updateControls();
+      scheduleAutoplay();
+    });
+
+    doc.addEventListener("visibilitychange", scheduleAutoplay);
+
+    const handleMotionPreference = (event) => {
+      motionPaused = event.matches;
+      updateControls();
+      scheduleAutoplay();
+    };
+
+    if (typeof reducedMotion?.addEventListener === "function") {
+      reducedMotion.addEventListener("change", handleMotionPreference);
+    } else if (typeof reducedMotion?.addListener === "function") {
+      reducedMotion.addListener(handleMotionPreference);
+    }
+
+    scheduleAutoplay();
+  });
+
   // Reveal content as it enters the viewport, while respecting reduced-motion CSS.
   const revealNodes = [...doc.querySelectorAll(".reveal")];
   if ("IntersectionObserver" in window) {

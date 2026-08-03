@@ -44,12 +44,31 @@
   </header>
 
   <main id="main-content">
-    <section class="section contact-hero" aria-labelledby="page-title">
+    <section class="page-hero page-hero--contact banner-slider banner-slider--contact" data-banner-slider data-interval="2000" data-transition="850" aria-labelledby="page-title">
+      <div class="banner-slider__media" aria-hidden="true">
+        <div class="banner-slider__slide is-active" data-banner-slide style="--banner-position: center; --banner-mobile-position: 70% center;">
+          <img src="assets/images/contact-site-survey-hd.jpg" alt="" width="1672" height="941" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+        <div class="banner-slider__slide" data-banner-slide style="--banner-position: center; --banner-mobile-position: 72% center;">
+          <img src="assets/images/contact-support-desk-hd.jpg" alt="" width="1672" height="941" loading="eager" decoding="async">
+        </div>
+        <div class="banner-slider__slide" data-banner-slide style="--banner-position: center; --banner-mobile-position: 70% center;">
+          <img src="assets/images/contact-service-team-hd.jpg" alt="" width="1672" height="941" loading="eager" decoding="async">
+        </div>
+      </div>
+      <div class="banner-slider__controls" aria-label="Contact banner slideshow controls">
+        <div class="banner-slider__dots" role="group" aria-label="Choose a banner image">
+          <button class="banner-slider__dot is-active" type="button" data-slide-to="0" aria-label="Show banner slide 1 of 3" aria-current="true"></button>
+          <button class="banner-slider__dot" type="button" data-slide-to="1" aria-label="Show banner slide 2 of 3" aria-current="false"></button>
+          <button class="banner-slider__dot" type="button" data-slide-to="2" aria-label="Show banner slide 3 of 3" aria-current="false"></button>
+        </div>
+        <button class="banner-slider__toggle" type="button" data-slider-toggle aria-label="Pause banner slideshow" aria-pressed="false"><i class="bi bi-pause-fill" data-slider-toggle-icon aria-hidden="true"></i></button>
+      </div>
       <div class="container">
         <nav aria-label="Breadcrumb">
           <ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active" aria-current="page">Contact</li></ol>
         </nav>
-        <div class="row align-items-end g-4 mb-5">
+        <div class="row align-items-end g-4">
           <div class="col-lg-8 reveal">
             <span class="section__eyebrow section__eyebrow--light">Contact RIOTIME</span>
             <h1 class="section__title" id="page-title">Tell us about your technical requirement.</h1>
@@ -59,7 +78,11 @@
             <a class="btn btn-outline-light" href="assets/docs/riotime-company-profile.pdf" download>Download Profile <i class="bi bi-download"></i></a>
           </div>
         </div>
+      </div>
+    </section>
 
+    <section class="section contact-hero" id="enquiry" aria-label="Contact details and project enquiry">
+      <div class="container">
         <div class="row g-3 mb-5">
           <div class="col-lg-4 reveal">
             <div class="contact-info-card">
@@ -81,7 +104,7 @@
           </div>
         </div>
 
-        <div class="row g-4 g-lg-5 align-items-stretch" id="enquiry">
+        <div class="row g-4 g-lg-5 align-items-stretch">
           <div class="col-lg-7 reveal">
             <form class="contact-form-card needs-validation h-100" data-whatsapp-form data-whatsapp="971552625454" novalidate>
               <div class="mb-4">

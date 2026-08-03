@@ -468,36 +468,177 @@ img {
   min-height: 690px;
   align-items: center;
   color: var(--rt-white);
-  background:
-    linear-gradient(90deg, rgba(3, 22, 38, 0.96) 0%, rgba(4, 30, 51, 0.9) 38%, rgba(5, 36, 62, 0.4) 69%, rgba(3, 22, 38, 0.12) 100%),
-    url("../images/hero-hvac.png") center / cover no-repeat;
+  background: var(--rt-navy-950);
   overflow: hidden;
-}
-
-.hero::before {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(3, 22, 38, 0.05), rgba(3, 22, 38, 0.28)),
-    linear-gradient(90deg, rgba(13, 93, 150, 0.12), transparent 60%);
-  content: "";
 }
 
 .hero::after {
   position: absolute;
   bottom: -160px;
   left: -110px;
+  z-index: 2;
   width: 420px;
   height: 420px;
   background: rgba(13, 93, 150, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 50%;
   content: "";
+  pointer-events: none;
 }
 
 .hero .container {
   position: relative;
+  z-index: 3;
+}
+
+/* Reusable three-image page banners */
+.banner-slider {
+  --banner-overlay: linear-gradient(90deg, rgba(3, 22, 38, 0.97) 0%, rgba(4, 30, 51, 0.9) 40%, rgba(5, 36, 62, 0.44) 70%, rgba(3, 22, 38, 0.18) 100%);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--rt-navy-950);
+}
+
+.page-hero.banner-slider {
+  --banner-overlay: linear-gradient(90deg, rgba(3, 22, 38, 0.97) 0%, rgba(4, 30, 51, 0.88) 50%, rgba(3, 22, 38, 0.38) 100%);
+}
+
+.banner-slider::before {
+  position: absolute;
+  inset: 0;
   z-index: 1;
+  background: var(--banner-overlay);
+  content: "";
+  pointer-events: none;
+}
+
+.banner-slider__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--rt-navy-950);
+  pointer-events: none;
+}
+
+.banner-slider__slide {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate3d(2.5%, 0, 0) scale(1.055);
+  transition:
+    opacity 850ms ease,
+    transform 1050ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.banner-slider__slide.is-active,
+.banner-slider__slide.is-entering,
+.banner-slider__slide.is-leaving {
+  visibility: visible;
+}
+
+.banner-slider__slide.is-active {
+  z-index: 2;
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.banner-slider__slide.is-entering {
+  z-index: 3;
+}
+
+.banner-slider__slide.is-leaving {
+  z-index: 1;
+  opacity: 0;
+  transform: translate3d(-2.5%, 0, 0) scale(1.025);
+}
+
+.banner-slider__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--banner-position, center);
+  user-select: none;
+}
+
+.banner-slider__controls {
+  position: absolute;
+  right: max(6rem, calc((100vw - 1320px) / 2));
+  bottom: 1.5rem;
+  z-index: 4;
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.42rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(3, 22, 38, 0.58);
+  box-shadow: 0 10px 30px rgba(3, 22, 38, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+.banner-slider__dots {
+  display: flex;
+  gap: 0.36rem;
+  align-items: center;
+  padding-left: 0.25rem;
+}
+
+.banner-slider__dot,
+.banner-slider__toggle {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  padding: 0;
+  color: var(--rt-white);
+  border: 0;
+  background: transparent;
+}
+
+.banner-slider__dot {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.banner-slider__dot::before {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.48);
+  content: "";
+  transition:
+    width 220ms ease,
+    background-color 220ms ease;
+}
+
+.banner-slider__dot.is-active::before {
+  width: 22px;
+  background: var(--rt-orange-500);
+}
+
+.banner-slider__toggle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 0.9rem;
+}
+
+.banner-slider__dot:focus-visible,
+.banner-slider__toggle:focus-visible {
+  outline: 2px solid var(--rt-white);
+  outline-offset: 3px;
+}
+
+.banner-slider__toggle:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 .hero__content {
@@ -1170,7 +1311,7 @@ img {
   color: rgba(255, 255, 255, 0.77);
   background:
     linear-gradient(110deg, rgba(6, 31, 54, 0.98), rgba(8, 59, 99, 0.94)),
-    url("../images/project-maintenance.png") center / cover no-repeat;
+    url("../images/project-maintenance.jpg") center / cover no-repeat;
   border-radius: var(--rt-radius-lg);
   box-shadow: var(--rt-shadow-lg);
 }
@@ -1248,47 +1389,23 @@ img {
   align-items: center;
   color: var(--rt-white);
   background-color: var(--rt-navy-950);
-  background-image:
-    linear-gradient(90deg, rgba(3, 22, 38, 0.96), rgba(4, 30, 51, 0.82) 48%, rgba(3, 22, 38, 0.34)),
-    var(--page-image, url("../images/about-team.png"));
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   overflow: hidden;
-}
-
-.page-hero--about {
-  background-image:
-    linear-gradient(90deg, rgba(3, 22, 38, 0.96), rgba(4, 30, 51, 0.82) 48%, rgba(3, 22, 38, 0.34)),
-    url("../images/about-team.png");
-}
-
-.page-hero--services {
-  background-image:
-    linear-gradient(90deg, rgba(3, 22, 38, 0.96), rgba(4, 30, 51, 0.82) 48%, rgba(3, 22, 38, 0.34)),
-    url("../images/service-linear-diffuser-hd.jpg");
-  background-position: center 44%;
-}
-
-.page-hero--projects {
-  background-image:
-    linear-gradient(90deg, rgba(3, 22, 38, 0.96), rgba(4, 30, 51, 0.82) 48%, rgba(3, 22, 38, 0.34)),
-    url("../images/service-tiling-hd.jpg");
-  background-position: center 46%;
 }
 
 .page-hero::after {
   position: absolute;
   inset: 0;
+  z-index: 2;
   background:
     radial-gradient(circle at 80% 15%, rgba(13, 93, 150, 0.25), transparent 35%),
     linear-gradient(180deg, transparent, rgba(3, 22, 38, 0.3));
   content: "";
+  pointer-events: none;
 }
 
 .page-hero .container {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   padding-top: 58px;
   padding-bottom: 68px;
 }
@@ -1954,9 +2071,6 @@ textarea.form-control {
 
   .hero {
     min-height: 640px;
-    background:
-      linear-gradient(90deg, rgba(3, 22, 38, 0.96), rgba(4, 30, 51, 0.85) 60%, rgba(3, 22, 38, 0.48)),
-      url("../images/hero-hvac.png") 64% center / cover no-repeat;
   }
 
   .hero__content {
@@ -2039,10 +2153,24 @@ textarea.form-control {
   .hero {
     min-height: 690px;
     align-items: flex-end;
-    background:
-      linear-gradient(180deg, rgba(3, 22, 38, 0.2) 0%, rgba(3, 22, 38, 0.78) 44%, rgba(3, 22, 38, 0.98) 100%),
-      url("../images/hero-hvac.png") 67% top / auto 58% no-repeat,
-      var(--rt-navy-950);
+  }
+
+  .banner-slider {
+    --banner-overlay: linear-gradient(180deg, rgba(3, 22, 38, 0.24) 0%, rgba(3, 22, 38, 0.76) 43%, rgba(3, 22, 38, 0.98) 100%);
+  }
+
+  .page-hero.banner-slider {
+    --banner-overlay: linear-gradient(180deg, rgba(3, 22, 38, 0.5) 0%, rgba(3, 22, 38, 0.9) 72%, rgba(3, 22, 38, 0.98) 100%);
+  }
+
+  .banner-slider__slide img {
+    object-position: var(--banner-mobile-position, var(--banner-position, center));
+  }
+
+  .banner-slider__controls {
+    top: 1rem;
+    right: 1rem;
+    bottom: auto;
   }
 
   .hero__content {

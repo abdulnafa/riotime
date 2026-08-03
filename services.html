@@ -44,7 +44,26 @@
   </header>
 
   <main id="main-content">
-    <section class="page-hero page-hero--services" aria-labelledby="page-title">
+    <section class="page-hero page-hero--services banner-slider banner-slider--services" data-banner-slider data-interval="2000" data-transition="850" aria-labelledby="page-title">
+      <div class="banner-slider__media" aria-hidden="true">
+        <div class="banner-slider__slide is-active" data-banner-slide style="--banner-position: 65% center; --banner-mobile-position: 68% center;">
+          <img src="assets/images/service-linear-diffuser-hd.jpg" alt="" width="1672" height="941" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+        <div class="banner-slider__slide" data-banner-slide style="--banner-position: 58% center; --banner-mobile-position: 59% center;">
+          <img src="assets/images/service-elv-networking-hd.jpg" alt="" width="1448" height="1086" loading="eager" decoding="async">
+        </div>
+        <div class="banner-slider__slide" data-banner-slide style="--banner-position: 64% center; --banner-mobile-position: 66% center;">
+          <img src="assets/images/service-tiling-hd.jpg" alt="" width="1672" height="941" loading="eager" decoding="async">
+        </div>
+      </div>
+      <div class="banner-slider__controls" aria-label="Services banner slideshow controls">
+        <div class="banner-slider__dots" role="group" aria-label="Choose a banner image">
+          <button class="banner-slider__dot is-active" type="button" data-slide-to="0" aria-label="Show banner slide 1 of 3" aria-current="true"></button>
+          <button class="banner-slider__dot" type="button" data-slide-to="1" aria-label="Show banner slide 2 of 3" aria-current="false"></button>
+          <button class="banner-slider__dot" type="button" data-slide-to="2" aria-label="Show banner slide 3 of 3" aria-current="false"></button>
+        </div>
+        <button class="banner-slider__toggle" type="button" data-slider-toggle aria-label="Pause banner slideshow" aria-pressed="false"><i class="bi bi-pause-fill" data-slider-toggle-icon aria-hidden="true"></i></button>
+      </div>
       <div class="container">
         <nav aria-label="Breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active" aria-current="page">Services</li></ol></nav>
         <span class="section__eyebrow section__eyebrow--light">Our services</span>
@@ -99,7 +118,7 @@
         <div class="row g-5 align-items-center">
           <div class="col-lg-6 order-lg-2 reveal">
             <div class="service-detail__image">
-              <img src="assets/images/service-electrical.png" alt="Qualified electrician carrying out diagnostic testing">
+              <img src="assets/images/service-electrical.jpg" alt="Qualified electrician carrying out diagnostic testing">
               <div class="service-detail__image-badge"><strong>Safe, practical electrical work</strong>From testing and upgrades to complete installations for new or refurbished spaces.</div>
             </div>
           </div>
@@ -186,7 +205,7 @@
         <div class="row g-5 align-items-center">
           <div class="col-lg-6 reveal">
             <div class="service-detail__image">
-              <img src="assets/images/project-maintenance.png" alt="Technician carrying out preventive equipment maintenance">
+              <img src="assets/images/project-maintenance.jpg" alt="Technician carrying out preventive equipment maintenance">
               <div class="service-detail__image-badge"><strong>Planned care for critical systems</strong>Maintenance and cleaning that support reliability, hygiene and day-to-day property performance.</div>
             </div>
           </div>

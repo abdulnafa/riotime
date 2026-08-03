@@ -53,7 +53,26 @@
   </header>
 
   <main id="main-content">
-    <section class="page-hero page-hero--about" aria-labelledby="page-title">
+    <section class="page-hero page-hero--about banner-slider banner-slider--about" data-banner-slider data-interval="2000" data-transition="850" aria-labelledby="page-title">
+      <div class="banner-slider__media" aria-hidden="true">
+        <div class="banner-slider__slide is-active" data-banner-slide style="--banner-position: 62% center; --banner-mobile-position: 64% center;">
+          <img src="assets/images/about-team.jpg" alt="" width="1672" height="941" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+        <div class="banner-slider__slide" data-banner-slide style="--banner-position: 62% center; --banner-mobile-position: 66% center;">
+          <img src="assets/images/project-maintenance.jpg" alt="" width="1672" height="941" loading="eager" decoding="async">
+        </div>
+        <div class="banner-slider__slide" data-banner-slide style="--banner-position: center; --banner-mobile-position: 70% center;">
+          <img src="assets/images/about-site-survey-hd.jpg" alt="" width="1672" height="941" loading="eager" decoding="async">
+        </div>
+      </div>
+      <div class="banner-slider__controls" aria-label="About banner slideshow controls">
+        <div class="banner-slider__dots" role="group" aria-label="Choose a banner image">
+          <button class="banner-slider__dot is-active" type="button" data-slide-to="0" aria-label="Show banner slide 1 of 3" aria-current="true"></button>
+          <button class="banner-slider__dot" type="button" data-slide-to="1" aria-label="Show banner slide 2 of 3" aria-current="false"></button>
+          <button class="banner-slider__dot" type="button" data-slide-to="2" aria-label="Show banner slide 3 of 3" aria-current="false"></button>
+        </div>
+        <button class="banner-slider__toggle" type="button" data-slider-toggle aria-label="Pause banner slideshow" aria-pressed="false"><i class="bi bi-pause-fill" data-slider-toggle-icon aria-hidden="true"></i></button>
+      </div>
       <div class="container">
         <nav aria-label="Breadcrumb">
           <ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active" aria-current="page">About</li></ol>
@@ -80,7 +99,7 @@
           </div>
           <div class="col-lg-6 reveal reveal-delay-1">
             <div class="service-detail__image">
-              <img src="assets/images/project-maintenance.png" alt="RIOTIME technician testing equipment during planned maintenance">
+              <img src="assets/images/project-maintenance.jpg" alt="RIOTIME technician testing equipment during planned maintenance">
               <div class="service-detail__image-badge"><strong>Built for dependable property performance</strong>Installation, maintenance and project support from one responsive technical team.</div>
             </div>
           </div>
