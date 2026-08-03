@@ -1635,6 +1635,13 @@ img {
   font-size: clamp(1rem, 1.8vw, 1.18rem);
 }
 
+/* Reserve a clear control lane below the Contact hero download action. */
+@media (min-width: 992px) {
+  .page-hero--contact .page-hero__action {
+    padding-bottom: 5.25rem;
+  }
+}
+
 /* About page */
 .value-card {
   height: 100%;
