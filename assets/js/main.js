@@ -181,7 +181,8 @@
       const name = String(formData.get("name") || "").trim();
       const email = String(formData.get("email") || "").trim();
       const phone = String(formData.get("phone") || "").trim();
-      const service = String(formData.get("service") || "General enquiry").trim();
+      const service = serviceSelect?.selectedOptions?.[0]?.text?.trim()
+        || String(formData.get("service") || "General enquiry").trim();
       const property = String(formData.get("property") || "").trim();
       const location = String(formData.get("location") || "").trim();
       const message = String(formData.get("message") || "").trim();

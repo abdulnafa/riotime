@@ -1266,13 +1266,15 @@ img {
 .page-hero--services {
   background-image:
     linear-gradient(90deg, rgba(3, 22, 38, 0.96), rgba(4, 30, 51, 0.82) 48%, rgba(3, 22, 38, 0.34)),
-    url("../images/hero-hvac.png");
+    url("../images/service-linear-diffuser-hd.jpg");
+  background-position: center 44%;
 }
 
 .page-hero--projects {
   background-image:
     linear-gradient(90deg, rgba(3, 22, 38, 0.96), rgba(4, 30, 51, 0.82) 48%, rgba(3, 22, 38, 0.34)),
-    url("../images/service-fitout.png");
+    url("../images/service-tiling-hd.jpg");
+  background-position: center 46%;
 }
 
 .page-hero::after {

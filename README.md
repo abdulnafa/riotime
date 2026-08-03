@@ -28,6 +28,6 @@ The included workflow at `.github/workflows/pages.yml` publishes the repository 
 
 - Company details and service scope were sourced from the supplied company-profile PDF.
 - Queen Elizabeth 2 and Al Rawdha Palace images are genuine project collages extracted from the supplied profile.
-- Other hero/service photography was generated specifically for this presentation and contains no third-party branding.
+- Other hero/service photography was generated specifically for this presentation and contains no third-party branding. These images are representative service visuals and are not presented as photographs of named RIOTIME projects.
 - The enquiry form validates in the browser and opens a prepared WhatsApp message; no form data is stored by this static site.
-- Replace or confirm the single testimonial before the final production launch if the client wants fully documented review provenance.
+- Unverified testimonials, service-hour claims and years-of-experience figures are intentionally excluded until the client confirms them in writing.
