@@ -880,14 +880,15 @@ img {
 }
 
 .service-card__icon {
-  position: absolute;
-  right: 1.4rem;
-  bottom: -26px;
-  z-index: 2;
+  position: relative;
+  z-index: 3;
   display: grid;
   width: 58px;
   height: 58px;
+  flex: 0 0 auto;
+  align-self: flex-end;
   place-items: center;
+  margin: -29px 1.4rem -29px 0;
   color: var(--rt-white);
   background: var(--rt-navy-900);
   border: 5px solid var(--rt-white);
@@ -900,7 +901,7 @@ img {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 1.75rem 1.5rem 1.5rem;
+  padding: 2.25rem 1.5rem 1.5rem;
 }
 
 .service-card__number {
@@ -2575,7 +2576,7 @@ textarea.form-control {
   }
 
   .service-card__body {
-    padding: 1.65rem 1.35rem 1.35rem;
+    padding: 2.15rem 1.35rem 1.35rem;
   }
 
   .brand-logo--footer {
