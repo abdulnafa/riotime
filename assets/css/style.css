@@ -2456,6 +2456,10 @@ textarea.form-control {
     --bs-gutter-x: 1.5rem;
   }
 
+  .row.g-5 {
+    --bs-gutter-x: 1.5rem;
+  }
+
   .section,
   .section--compact {
     padding: 66px 0;
