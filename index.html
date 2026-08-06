@@ -4,13 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="RIOTIME Technical Services provides HVAC, electrical, ELV, networking, interior fit-out and property-maintenance services across Dubai and the UAE.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#061f36">
-  <meta property="og:title" content="RIOTIME Technical Services LLC">
+  <link rel="canonical" href="https://riotime.ae/">
+  <meta property="og:title" content="RIOTIME Technical Services | Dubai, UAE">
   <meta property="og:description" content="Integrated HVAC, electrical, ELV, networking, fit-out and property-maintenance services across Dubai and the UAE.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/hero-hvac.jpg">
+  <meta property="og:site_name" content="RIOTIME">
+  <meta property="og:locale" content="en_AE">
+  <meta property="og:image" content="https://riotime.ae/assets/images/hero-hvac.jpg">
+  <meta property="og:image:alt" content="RIOTIME technicians servicing commercial HVAC equipment in Dubai">
   <meta property="og:url" content="https://riotime.ae/">
-  <title>RIOTIME Technical Services LLC | Dubai, UAE</title>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RIOTIME Technical Services | Dubai, UAE">
+  <meta name="twitter:description" content="Integrated HVAC, electrical, ELV, networking, fit-out and property-maintenance services across Dubai and the UAE.">
+  <meta name="twitter:image" content="https://riotime.ae/assets/images/hero-hvac.jpg">
+  <title>RIOTIME Technical Services | HVAC, Electrical &amp; Fit-Out Dubai</title>
 
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
@@ -23,22 +32,48 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "name": "RIOTIME Technical Services L.L.C",
-    "url": "https://riotime.ae/",
-    "email": "info@riotime.ae",
-    "telephone": ["+97145805983", "+971552625454"],
-    "description": "HVAC, electrical, ELV, networking, interior fit-out and property-maintenance services across Dubai and the UAE.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Office #615, Ascon House, Salahudin Road, Deira",
-      "addressLocality": "Dubai",
-      "addressCountry": "AE"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "United Arab Emirates"
-    }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://riotime.ae/#website",
+        "url": "https://riotime.ae/",
+        "name": "RIOTIME",
+        "alternateName": "Rio Time Technical Services",
+        "publisher": {
+          "@id": "https://riotime.ae/#organization"
+        },
+        "inLanguage": "en-AE"
+      },
+      {
+        "@type": "HomeAndConstructionBusiness",
+        "@id": "https://riotime.ae/#organization",
+        "name": "RIOTIME Technical Services L.L.C",
+        "alternateName": "RIOTIME",
+        "url": "https://riotime.ae/",
+        "logo": "https://riotime.ae/assets/images/riotime-logo.jpg",
+        "image": "https://riotime.ae/assets/images/hero-hvac.jpg",
+        "email": "riotimedubai@gmail.com",
+        "telephone": "+97145805983",
+        "description": "HVAC, electrical, ELV, networking, interior fit-out and property-maintenance services across Dubai and the UAE.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Office #615, Ascon House, Salahudin Road, Deira",
+          "addressLocality": "Dubai",
+          "addressCountry": "AE"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United Arab Emirates"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+971552625454",
+          "contactType": "customer service",
+          "areaServed": "AE",
+          "availableLanguage": "English"
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -53,7 +88,7 @@
           <span class="utility-bar__item"><i class="bi bi-tools"></i> Integrated technical &amp; fit-out services</span>
         </div>
         <div class="d-flex align-items-center gap-4">
-          <a class="utility-bar__item" href="mailto:info@riotime.ae"><i class="bi bi-envelope-fill"></i> info@riotime.ae</a>
+          <a class="utility-bar__item" href="mailto:riotimedubai@gmail.com"><i class="bi bi-envelope-fill"></i> riotimedubai@gmail.com</a>
           <a class="utility-bar__item" href="tel:+97145805983"><i class="bi bi-telephone-fill"></i> 04 580 5983</a>
         </div>
       </div>
@@ -61,8 +96,8 @@
 
     <nav class="navbar navbar-expand-lg site-navbar" aria-label="Primary navigation">
       <div class="container">
-        <a class="navbar-brand navbar-brand--official" href="index.html" aria-label="RIOTIME home">
-          <img class="brand-logo brand-logo--header" src="assets/images/riotime-logo.jpg" width="431" height="154" alt="">
+        <a class="navbar-brand navbar-brand--official" href="./" aria-label="RIOTIME home">
+          <img class="brand-logo brand-logo--header" src="assets/images/riotime-logo.jpg" width="431" height="154" alt="RIOTIME Technical Services L.L.C logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,11 +106,11 @@
 
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-            <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="./">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
           </ul>
           <div class="d-flex flex-column flex-lg-row gap-2 mt-4 mt-lg-0">
             <a class="btn btn-primary" href="tel:+971552625454"><i class="bi bi-telephone-fill"></i> Call Now</a>
@@ -112,7 +147,7 @@
           <h1 id="hero-title">Reliable technical services, <em>from first fix to final finish.</em></h1>
           <p class="hero__lead">RIOTIME delivers HVAC, electrical, ELV and networking, interior fit-out, painting and specialist maintenance for villas, workplaces and commercial properties across Dubai and the UAE.</p>
           <div class="hero__actions">
-            <a class="btn btn-primary" href="contact.html#enquiry"><span>Request a Site Survey</span><i class="bi bi-arrow-right"></i></a>
+            <a class="btn btn-primary" href="contact#enquiry"><span>Request a Site Survey</span><i class="bi bi-arrow-right"></i></a>
             <a class="btn btn-outline-light" href="tel:+97145805983"><i class="bi bi-telephone"></i><span>04 580 5983</span></a>
           </div>
           <div class="hero__trust" aria-label="RIOTIME service benefits">
@@ -156,7 +191,7 @@
             <p class="section__intro">From air-conditioning and electrical installations to connected systems, interior finishing and property care, RIOTIME brings complementary services together under one scope.</p>
           </div>
           <div class="col-lg-4 text-lg-end reveal reveal-delay-1">
-            <a class="btn btn-outline-navy" href="services.html">Explore All Services <i class="bi bi-arrow-up-right"></i></a>
+            <a class="btn btn-outline-navy" href="services">Explore All Services <i class="bi bi-arrow-up-right"></i></a>
           </div>
         </div>
 
@@ -177,7 +212,7 @@
                   <li><i class="bi bi-check2"></i> Ducted split</li>
                   <li><i class="bi bi-check2"></i> AC servicing</li>
                 </ul>
-                <a class="btn btn-link-arrow" href="services.html#hvac">View HVAC services <i class="bi bi-arrow-right"></i></a>
+                <a class="btn btn-link-arrow" href="services#hvac">View HVAC services <i class="bi bi-arrow-right"></i></a>
               </div>
             </article>
           </div>
@@ -198,7 +233,7 @@
                   <li><i class="bi bi-check2"></i> LED lighting</li>
                   <li><i class="bi bi-check2"></i> DB upgrades</li>
                 </ul>
-                <a class="btn btn-link-arrow" href="services.html#electrical">View electrical services <i class="bi bi-arrow-right"></i></a>
+                <a class="btn btn-link-arrow" href="services#electrical">View electrical services <i class="bi bi-arrow-right"></i></a>
               </div>
             </article>
           </div>
@@ -219,7 +254,7 @@
                   <li><i class="bi bi-check2"></i> Structured cabling</li>
                   <li><i class="bi bi-check2"></i> Smart homes</li>
                 </ul>
-                <a class="btn btn-link-arrow" href="services.html#low-current">View ELV services <i class="bi bi-arrow-right"></i></a>
+                <a class="btn btn-link-arrow" href="services#low-current">View ELV services <i class="bi bi-arrow-right"></i></a>
               </div>
             </article>
           </div>
@@ -240,7 +275,7 @@
                   <li><i class="bi bi-check2"></i> Carpentry</li>
                   <li><i class="bi bi-check2"></i> Painting</li>
                 </ul>
-                <a class="btn btn-link-arrow" href="services.html#fitout">View fit-out services <i class="bi bi-arrow-right"></i></a>
+                <a class="btn btn-link-arrow" href="services#fitout">View fit-out services <i class="bi bi-arrow-right"></i></a>
               </div>
             </article>
           </div>
@@ -261,7 +296,7 @@
                   <li><i class="bi bi-check2"></i> Leak detection</li>
                   <li><i class="bi bi-check2"></i> Water-tank cleaning</li>
                 </ul>
-                <a class="btn btn-link-arrow" href="services.html#maintenance">View maintenance services <i class="bi bi-arrow-right"></i></a>
+                <a class="btn btn-link-arrow" href="services#maintenance">View maintenance services <i class="bi bi-arrow-right"></i></a>
               </div>
             </article>
           </div>
@@ -300,7 +335,7 @@
                   </li>
                 </ul>
                 <div class="home-about__actions">
-                  <a class="btn btn-primary" href="about.html">Discover RIOTIME <i class="bi bi-arrow-right"></i></a>
+                  <a class="btn btn-primary" href="about">Discover RIOTIME <i class="bi bi-arrow-right"></i></a>
                   <a class="btn btn-outline-navy" href="assets/docs/riotime-company-profile.pdf" download>Company Profile <i class="bi bi-download"></i></a>
                 </div>
               </div>
@@ -319,7 +354,7 @@
             <p class="section__intro">A responsive technical partner that keeps communication clear and every trade focused on the same outcome.</p>
           </div>
           <div class="col-lg-4 text-lg-end reveal reveal-delay-1">
-            <a class="btn btn-outline-light" href="contact.html">Plan Your Project <i class="bi bi-arrow-up-right"></i></a>
+            <a class="btn btn-outline-light" href="contact">Plan Your Project <i class="bi bi-arrow-up-right"></i></a>
           </div>
         </div>
         <div class="row g-4">
@@ -364,14 +399,14 @@
             <p class="section__intro">From landmark hospitality environments to villas, clinics and transport facilities, RIOTIME adapts its technical scope to each property.</p>
           </div>
           <div class="col-lg-4 text-lg-end reveal reveal-delay-1">
-            <a class="btn btn-outline-navy" href="projects.html">View Project Experience <i class="bi bi-arrow-up-right"></i></a>
+            <a class="btn btn-outline-navy" href="projects">View Project Experience <i class="bi bi-arrow-up-right"></i></a>
           </div>
         </div>
 
         <div class="row g-4">
           <div class="col-lg-6 reveal">
-            <a class="project-card" href="projects.html#queen-elizabeth-2" aria-label="Read about the Queen Elizabeth 2 project">
-              <img src="assets/images/project-qe2.jpg" alt="Completed RIOTIME stairway and interior renovation work aboard Queen Elizabeth 2" loading="lazy">
+            <a class="project-card" href="projects#queen-elizabeth-2" aria-label="Read about the Queen Elizabeth 2 project">
+              <img src="assets/images/project-qe2.jpg" alt="Completed RIOTIME stairway and interior renovation work aboard Queen Elizabeth 2" width="1800" height="1841" loading="lazy" decoding="async">
               <span class="project-card__arrow"><i class="bi bi-arrow-up-right"></i></span>
               <span class="project-card__content">
                 <span class="project-card__type">Hospitality Fit-Out</span>
@@ -381,8 +416,8 @@
             </a>
           </div>
           <div class="col-lg-6 reveal reveal-delay-1">
-            <a class="project-card" href="projects.html#rawdha-palace" aria-label="Read about the Al Rawdha Palace project">
-              <img src="assets/images/project-rawdha.jpg" alt="Completed RIOTIME interior and ceiling works at Al Rawdha Palace polyclinic" loading="lazy">
+            <a class="project-card" href="projects#rawdha-palace" aria-label="Read about the Al Rawdha Palace project">
+              <img src="assets/images/project-rawdha.jpg" alt="Completed RIOTIME interior and ceiling works at Al Rawdha Palace polyclinic" width="1800" height="1812" loading="lazy" decoding="async">
               <span class="project-card__arrow"><i class="bi bi-arrow-up-right"></i></span>
               <span class="project-card__content">
                 <span class="project-card__type">Clinic MEP &amp; Fit-Out</span>
@@ -450,7 +485,7 @@
             <h2 class="section__title" id="faq-title">Before we visit your site.</h2>
             <p class="section__intro">A few quick answers about RIOTIME's coverage and technical services.</p>
             <div class="mt-4">
-              <a class="btn btn-primary" href="contact.html">Ask a Question <i class="bi bi-chat-dots"></i></a>
+              <a class="btn btn-primary" href="contact">Ask a Question <i class="bi bi-chat-dots"></i></a>
             </div>
           </div>
           <div class="col-lg-7 reveal reveal-delay-1">
@@ -484,7 +519,7 @@
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">How do I request a quotation?</button>
                 </h3>
                 <div id="faqFour" class="accordion-collapse collapse" data-bs-parent="#homeFaq">
-                  <div class="accordion-body">Call 04 580 5983 or 055 262 5454, email info@riotime.ae, or complete the enquiry form below. Share the location, service required and a short description so the team can respond efficiently.</div>
+                  <div class="accordion-body">Call 04 580 5983 or 055 262 5454, email riotimedubai@gmail.com, or complete the enquiry form below. Share the location, service required and a short description so the team can respond efficiently.</div>
                 </div>
               </div>
             </div>
@@ -510,7 +545,7 @@
               <div class="col-sm-6">
                 <div class="contact-info-card">
                   <span class="contact-info-card__icon"><i class="bi bi-envelope"></i></span>
-                  <span><h3>Email</h3><a href="mailto:info@riotime.ae">info@riotime.ae</a><a href="mailto:riotimedubai@gmail.com">riotimedubai@gmail.com</a></span>
+                  <span><h3>Email</h3><a href="mailto:riotimedubai@gmail.com">riotimedubai@gmail.com</a></span>
                 </div>
               </div>
             </div>
@@ -574,32 +609,32 @@
       <div class="container">
         <div class="row g-5">
           <div class="col-lg-4">
-            <a class="navbar-brand navbar-brand--official navbar-brand--footer" href="index.html" aria-label="RIOTIME home">
-              <img class="brand-logo brand-logo--footer" src="assets/images/riotime-logo.jpg" width="431" height="154" alt="" loading="lazy" decoding="async">
+            <a class="navbar-brand navbar-brand--official navbar-brand--footer" href="./" aria-label="RIOTIME home">
+              <img class="brand-logo brand-logo--footer" src="assets/images/riotime-logo.jpg" width="431" height="154" alt="RIOTIME Technical Services L.L.C logo" loading="lazy" decoding="async">
             </a>
             <p class="site-footer__about">Your technical partner for HVAC, electrical, low-current, networking and professional fit-out works across Dubai and the UAE.</p>
             <div class="footer-socials">
               <a href="https://wa.me/971552625454" target="_blank" rel="noopener" aria-label="WhatsApp RIOTIME"><i class="bi bi-whatsapp"></i></a>
-              <a href="mailto:info@riotime.ae" aria-label="Email RIOTIME"><i class="bi bi-envelope"></i></a>
+              <a href="mailto:riotimedubai@gmail.com" aria-label="Email RIOTIME"><i class="bi bi-envelope"></i></a>
               <a href="tel:+97145805983" aria-label="Call RIOTIME"><i class="bi bi-telephone"></i></a>
             </div>
           </div>
           <div class="col-6 col-lg-2">
             <h3>Company</h3>
             <ul class="footer-links">
-              <li><a href="about.html">About us</a></li>
-              <li><a href="projects.html">Project experience</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="about">About us</a></li>
+              <li><a href="projects">Project experience</a></li>
+              <li><a href="contact">Contact</a></li>
               <li><a href="assets/docs/riotime-company-profile.pdf" download>Download profile</a></li>
             </ul>
           </div>
           <div class="col-6 col-lg-3">
             <h3>Services</h3>
             <ul class="footer-links">
-              <li><a href="services.html#hvac">HVAC &amp; air conditioning</a></li>
-              <li><a href="services.html#electrical">Electrical services</a></li>
-              <li><a href="services.html#low-current">Low-current &amp; networking</a></li>
-              <li><a href="services.html#fitout">Fit-out &amp; painting</a></li>
+              <li><a href="services#hvac">HVAC &amp; air conditioning</a></li>
+              <li><a href="services#electrical">Electrical services</a></li>
+              <li><a href="services#low-current">Low-current &amp; networking</a></li>
+              <li><a href="services#fitout">Fit-out &amp; painting</a></li>
             </ul>
           </div>
           <div class="col-lg-3">
@@ -607,7 +642,7 @@
             <ul class="footer-links">
               <li><span><i class="bi bi-geo-alt"></i> Office #615, Ascon House, opposite Asiana Hotel, Salahudin Road, Deira, Dubai, UAE</span></li>
               <li><a href="tel:+97145805983"><i class="bi bi-telephone"></i> 04 580 5983</a></li>
-              <li><a href="mailto:info@riotime.ae"><i class="bi bi-envelope"></i> info@riotime.ae</a></li>
+              <li><a href="mailto:riotimedubai@gmail.com"><i class="bi bi-envelope"></i> riotimedubai@gmail.com</a></li>
             </ul>
           </div>
         </div>
